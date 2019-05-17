@@ -1,0 +1,3 @@
+#app .login .ant-input-affix-wrapper .ant-input-prefix{right:12px !important;left:auto;}
+.login .verifi .ant-form-item-control .ant-form-item-children{display: flex;}
+.login .right-part .ant-form-item{margin-top:15px;margin-bottom:0;}

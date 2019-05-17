@@ -1,8 +1,16 @@
 *{margin:0;padding:0}
+html,body,#app,.index{width:100%;height:100%;}
+ul li,ol li{list-style: none;}
+body{
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #676a6c;
+}
+ 
 .index .el-aside{
     width:auto !important;
 }
-a{cursor: pointer;}
+a{cursor: pointer;text-decoration: none; color:black;}
 .index .el-tabs--border-card{
     border:none;
     box-shadow:none;
@@ -18,6 +26,22 @@ a{cursor: pointer;}
     background: #cccccc;;
 }
 
+
+/* 个人信息 */
 .basicInfo .el-form-item__content{
  margin-left:0;
 }
+.basicInfo  .el-radio-group,.basicInfo .selectSex  .el-form-item__content{float:left !important;}
+.basicInfo .el-form-item__label {width:auto !important;}
+.basicInfo .address .el-form-item__content{display:flex;}
+
+.aside-header .el-tooltip {padding:0 !important;}
+.index .el-menu{
+    background-color:transparent;
+    color:#ffffff;
+}
+
+.index .el-submenu__title i,.index .el-submenu__title,.index .el-menu-item{color:#ffffff;}
+.index .el-submenu__title:hover,.index .el-menu-item:hover{background:rgb(38, 57, 73)}
+
+ 

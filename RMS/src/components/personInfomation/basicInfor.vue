@@ -4,9 +4,6 @@
    <el-row :gutter="20">
   <el-col :span="12" :offset="6">
       <div class="grid-content bg-purple">
-          
-         
-
     <el-form
       :model="ruleForm"
       :rules="rules"
@@ -18,14 +15,14 @@
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
 
-      <el-form-item label="性别" prop="sex">
+      <el-form-item label="性别" prop="sex" class="selectSex">
         <el-radio-group v-model="ruleForm.sex">
           <el-radio label="男"></el-radio>
           <el-radio label="女"></el-radio>
         </el-radio-group>
       </el-form-item>
 
-      <el-form-item label="出生年月" required>
+      <el-form-item label="出生年月" required class='YearDate'>
         <el-col :span="11">
           <el-form-item prop="date1">
             <el-date-picker
@@ -46,7 +43,7 @@
         <el-input v-model="ruleForm.email"></el-input>
       </el-form-item>
 
-      <el-form-item label="居住地" prop="province">
+      <el-form-item label="居住地" prop="province" class='address'>
         <el-select v-model="ruleForm.province">
           <el-option label="上海" value="shanghai"></el-option>
           <el-option label="江苏" value="jiangsu"></el-option>
@@ -85,10 +82,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
+        name: "", 
+        date1: "", 
         delivery: false,
         type: [],
         sex: "",
@@ -139,8 +134,7 @@ export default {
             message: "请输入正确的邮箱地址",
             trigger: ["blur", "change"]
           }
-        ],
-        desc: [{ required: true, message: "请填写活动形式", trigger: "blur" }],
+        ], 
         address:[{ required: true, message: "请选择", trigger: "blur" }],
         like:[{required: true, message: "请选择", trigger: "change" }]
       }
@@ -160,6 +154,9 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
+  },
+  mounted(){
+    console.log(this.props)
   }
 };
 </script>
