@@ -82,10 +82,8 @@
 <p><a-icon type="copyright" /> 2019 ALL Rights Reserved.RuoYi</p>
         <a>粤ICP备18046899号</a>
         </div>
-        
       </a-col>
     </a-row>
-    
   </div>
 </template>
 <script>
@@ -111,8 +109,9 @@ export default {
       this.num2 = Math.floor(Math.random() * 9 + 1);
       var _cSign = Math.floor(Math.random() * (this.signArr.length - 1) + 1);
       this.cSign = this.signArr[_cSign];
-      this.checkCode = this.num1 + this.cSign + this.num2 + "=?";
+      this.compareMax(this.num1,this.num2,this.cSign)
     },
+    // 验证码验证
     checkVerification() {
       this.verifiNum=this.$refs.verifi.value
       switch (this.cSign) {
@@ -120,7 +119,8 @@ export default {
           this.countNum = this.num1 * this.num2;
           break;
         case "-":
-          this.countNum = this.num1 - this.num2;
+             this.compareMax(this.num1,this.num2,'-')
+            //  this.countNum = this.num1 - this.num2;
           break;
         case "+":
           this.countNum = this.num1 + this.num2;
@@ -129,12 +129,21 @@ export default {
           break;   
       }
       if(this.verifiNum==this.countNum){
-        alert('验证码正确')
+       this.handleSubmit(e)
       }else{
         alert('验证码输入错误')
       }
     },
-
+    compareMax(val,val2,val3){
+      if(val<val2 && val3 =='-'){
+       var num;
+       num=val2
+       val2=val
+       val=num
+       }  
+       this.checkCode = val + val3 + val2 + "=?";
+       this.countNum =val - val2
+    },
      handleSubmit  (e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
@@ -161,11 +170,11 @@ export default {
   }
   h5 {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.0769rem;
     color: #ffffff;
   }
   i {
-    margin-right: 5px;
+    margin-right: 0.3846rem;
   }
   .left-part {
     text-align: left;
@@ -174,7 +183,7 @@ export default {
     border: 1px white solid;
     border-radius: 1px;
     background: rgba(255, 255, 255, 0.2);
-    padding: 30px;
+    padding: 2.3077rem;
     text-align:left;
     color:#ffffff;
     h3{
@@ -193,16 +202,16 @@ export default {
       from(rgb(199, 197, 200)),
       to(rgb(255, 255, 255))
     );
-    width:90px;
-    margin-left:30px;
+    width:6.9231rem;
+    margin-left:2.3077rem;
   }
   
   .footerPart{
     border-top:1px solid rgba(255,255,255,.3);
     text-align: left;
-    margin-top: 15px;
+    margin-top: 1.1538rem;
     .footerPart-text{
-      padding-top:20px;
+      padding-top:1.5385rem;
       p{margin-bottom:0;}
     }
   }

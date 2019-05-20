@@ -11,6 +11,7 @@ import api from '@/api/api.js'
 import axios from 'axios'
 import ant from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
+import '@/assets/js/common.js'
  
  
  

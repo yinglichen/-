@@ -24,7 +24,7 @@
         <a-menu theme="dark" mode="vertical" :defaultSelectedKeys="['1']" @click="handleClick">
           <a-sub-menu key="sub1">
             <span slot="title">
-              <a-icon type="dashboard"/>
+             <a-icon type="home" />
               <span class="main-page">主页</span>
             </span>
             <a-menu-item key="1">了解若依</a-menu-item>
@@ -96,7 +96,7 @@
           </div>
         </a-layout-header>
         <a-layout-content
-          :style="{ background: '#fff', minHeight: '280px' }"
+          :style="{ background: '#fff', height: '100%' }"
         ><contentIndex/></a-layout-content>
       </a-layout>
     </a-layout>
@@ -125,32 +125,32 @@ export default {
   width: 100%;
   height: 100%;
   .trigger {
-    font-size: 18px;
-    line-height: 50px;
-    padding: 0 24px;
+    font-size: 1.3846rem;
+    line-height: 3.8462rem;
+    padding: 0 1.8462rem;
     cursor: pointer;
     transition: color 0.3s;
     float: left;
   }
 
   .logo {
-    height: 50px;
+    height: 3.8462rem;
     color: #ffffff;
     background-color: #367fa9;
-    font-size: 20px;
-    line-height: 50px;
+    font-size: 1.5385rem;
+    line-height: 3.8462rem;
   }
   .main-page {
-    margin-right: 25px;
+    margin-right: 1.9231rem;
   }
   .admin-info {
     display: flex;
-    padding: 15px;
+    padding: 1.1538rem;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 0.9231rem;
     img {
       height: auto;
-      max-width: 45px;
+      max-width: 3.4615rem;
       flex: 1;
       border-radius: 50%;
     }
@@ -164,7 +164,7 @@ export default {
       }
     }
     .logOut {
-      padding-left: 5px;
+      padding-left: 0.3846rem;
       i {
         color: red;
       }
@@ -178,16 +178,16 @@ export default {
     float: right;
     ul{
       display: flex;
-      li{padding:0 10px;line-height: 50px;
+      li{padding:0 0.7692rem;line-height: 3.8462rem;
       img {
       height: auto;
-      max-width: 45px;
+      max-width: 3.4615rem;
       flex: 1;
       border-radius: 50%;
     }
       a{
         color: #ffffff;
-      i{margin:5px;}
+      i{margin:0.3846rem;}
       }
       .fullScreen{
         cursor: pointer;

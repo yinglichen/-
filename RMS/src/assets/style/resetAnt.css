@@ -1,3 +1,12 @@
-#app .login .ant-input-affix-wrapper .ant-input-prefix{right:12px !important;left:auto;}
+#app .login .ant-input-affix-wrapper .ant-input-prefix{right:0.9231rem !important;left:auto;}
 .login .verifi .ant-form-item-control .ant-form-item-children{display: flex;}
 .login .right-part .ant-form-item{margin-top:15px;margin-bottom:0;}
+.content-index .ant-layout-header{padding:0}
+.ant-dropdown-menu-item:hover{
+    background-color: #e1e3e9 !important;
+              color: #333
+}
+.contain-index .ant-collapse-content{
+    background-color:#fff !important;
+    border-top:1px solid #ddd !important;
+}
