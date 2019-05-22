@@ -21,50 +21,25 @@
             </p>
           </div>
         </div>
-        <a-menu theme="dark" mode="vertical" :defaultSelectedKeys="['1']" @click="handleClick">
-          <a-sub-menu key="sub1">
+
+        <a-menu theme="dark" mode="vertical"  
+        v-for='item in menuList'
+        :key='item.index'>
+          <a-sub-menu :key="item.key">
             <span slot="title">
              <a-icon type="home" />
-              <span class="main-page">主页</span>
+              <span class="main-page">{{item.name}}</span>
             </span>
-            <a-menu-item key="1">了解若依</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub2">
-            <span slot="title">
-              <a-icon type="setting"/>
-              <span>系统管理</span>
-            </span>
-            <a-menu-item key="2">用户管理</a-menu-item>
-            <a-menu-item key="3">角色管理</a-menu-item>
-            <a-menu-item key="4">菜单管理</a-menu-item>
-            <a-menu-item key="5">部门管理</a-menu-item>
-            <a-menu-item key="6">岗位管理</a-menu-item>
-            <a-menu-item key="7">字典管理</a-menu-item>
-            <a-menu-item key="8">参数设置</a-menu-item>
-            <a-menu-item key="9">通知公告</a-menu-item>
-            <a-menu-item key="10">日志管理</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub3">
-            <span slot="title">
-              <a-icon type="video-camera"/>
-              <span>系统监控</span>
-            </span>
-            <a-menu-item key="11">在线用户</a-menu-item>
-            <a-menu-item key="12">定时任务</a-menu-item>
-            <a-menu-item key="13">数据监控</a-menu-item>
-            <a-menu-item key="14">服务监控</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub4">
-            <span slot="title">
-              <a-icon type="tool"/>
-              <span>系统工具</span>
-            </span>
-            <a-menu-item key="15">表单构建</a-menu-item>
-            <a-menu-item key="16">代码生成</a-menu-item>
-            <a-menu-item key="17">系统接口</a-menu-item>
+            <a-menu-item  
+            v-for='menu in item.menu' 
+            :key='menu.key'
+             @click="handleClick(menu)"
+             :selectable='selectable'
+             multiple='false'
+            >{{menu.name}}</a-menu-item>
           </a-sub-menu>
         </a-menu>
-      </a-layout-sider>
+      </a-layout-sider> 
       <a-layout>
         <a-layout-header style="background:rgb(60,141,188);height:50px; padding: 0;color:#ffffff;">
           <a-icon
@@ -97,7 +72,9 @@
         </a-layout-header>
         <a-layout-content
           :style="{ background: '#fff', height: '100%' }"
-        ><contentIndex/></a-layout-content>
+        >
+        <contentIndex :keyNum='keyNum'/>
+        </a-layout-content>
       </a-layout>
     </a-layout>
   </div>
@@ -107,15 +84,53 @@ import contentIndex from '@/components/content/index.vue'
 export default {
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      keyNum:1,
+      selectable:true,
+      menuList:[
+        {key:'sub1',name:'主页',menu:[{key:1,name:'了解若依'}]},
+        {key:'sub2',name:'系统管理',menu:[{key:2,name:'用户管理'},{
+          key:3,name:'角色管理'
+        },{
+          key:4,name:'菜单管理'
+        },{
+          key:5,name:'部门管理'
+        },{
+          key:6,name:'岗位管理'
+        },{
+          key:7,name:'字典管理'
+        },{
+          key:8,name:'参数设置'
+        },{
+          key:9,name:'通知公告'
+        },{
+          key:10,name:'日志管理',logList:[{
+            key:11,name:'操作日志'
+          },{
+            key:12,name:'登录日志'
+          }]
+        }]},{
+          key:'sub3',name:'系统监控',menu:[{key:13,name:'在线用户'},{key:14,name:'定时任务'},{
+            key:15,name:'数据监控'
+          },{
+            key:16,name:'服务监控'
+          }]
+        },{
+          key:'sub4',name:'系统工具',menu:[{key:17,name:'表单构建'},{
+            key:18,name:'代码生成'},
+            {key:19,name:'系统接口'}]
+        }
+      ]
     };
   },
   components:{
     contentIndex
   },
   methods: {
-    handleClick(e) {
-      console.log("click ", e);
+    handleClick(item) { 
+      this.keyNum=item
+      this.selectable=false;
+     // this.keyNum=item.key
     }
   }
 };

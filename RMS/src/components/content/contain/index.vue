@@ -103,8 +103,8 @@
       <a-col :span="7" :offset="1" class="bT4 bgW">
         <h5>捐赠</h5>
         <div class="qr-code P20">
-          <div class="dia-btn" @click="digShow">请作者喝杯咖啡（点击图片放大）</div>
-          <ul style="display:flex;">
+          <div class="dia-btn" >请作者喝杯咖啡（点击图片放大）</div>
+          <ul style="display:flex;cursor: pointer;" @click="digShow">
             <li style="flex:1">
               <img src="@/assets/images/qr_code.png" style="width:100%">
             </li>
@@ -117,13 +117,18 @@
     </a-row>
     <!-- 对话框 -->
     <a-modal
-      title="Vertically centered modal dialog"
       centered
       v-model="modalVisible"
+      class='modal-qrcode'
     >
-      <p>some contents...</p>
-      <p>some contents...</p>
-      <p>some contents...</p>
+       <ul style="display:flex;padding:1.5385rem;">
+            <li style="flex:1">
+              <img src="@/assets/images/qr_code.png" style="width:100%">
+            </li>
+            <li style="flex:1">
+              <img src="@/assets/images/qr_code.png" style="width:100%">
+            </li>
+          </ul>
     </a-modal>
   </div>
 </template>

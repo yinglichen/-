@@ -2,11 +2,18 @@
   <div class="content-index">
     <a-layout style='height:100%;'>
       <a-layout-header style="background:#ffffff;" class="content-header">
-        <ul v-for="(item,value) in navList" :key="value">
+        <ul >
           <li @click="goForward" class="forward">
             <a-icon type="double-left"/>
           </li>
-          <li :class="active==index?'active':''">{{item.name}}</li>
+          <!-- <li :class="active=='0'?'active':''"
+           @click='key=1'>首页</li> -->
+          <li v-for="(item,index) in navList" :key="index"
+            :class="active==item.key?'active':''"
+           >
+           <span @click="showContain(item.key)">{{item.name}}</span>
+            <a-icon type="close" v-if='item&&item.key !=1' @click='closeThisPage(index)'/>
+          </li>
         </ul>
         <div class="right-btn">
           <ul>
@@ -20,14 +27,12 @@
                   <a-icon type="down"/>
                 </a>
                 <a-menu slot="overlay" @click="operatePage" class='operate-details'>
-                  <a-menu-item key="1">关闭当前</a-menu-item>
-                  <a-menu-item key="2">关闭其他</a-menu-item>
-                  <a-menu-item key="3">关闭全部</a-menu-item>
+                  <a-menu-item key="1" @click="closePage(key)">关闭当前</a-menu-item>
+                  <a-menu-item key="2" @click='keepCurPage'>关闭其他</a-menu-item>
+                  <a-menu-item key="3" @click='closeAll'>关闭全部</a-menu-item>
                   <a-menu-item key="4">全屏显示</a-menu-item>
                 </a-menu>
               </a-dropdown>
-
-              <!-- 页面操作<a-icon type="caret-down" /> -->
             </li>
             <li @click="reload">
               <a-icon type="sync"/>刷新
@@ -36,8 +41,10 @@
         </div>
       </a-layout-header>
       <a-layout-content class='content'>
-          <mainIndex/>
+          <mainIndex v-if="key ==1"/>
+          <manageUser v-if="key==2"/>
       </a-layout-content>
+
        <a-layout-footer class='footer'>
            © 2019 RuoYi Copyright 
        </a-layout-footer>
@@ -46,29 +53,125 @@
 </template>
 <script>
 import mainIndex from '@/components/content/contain/index.vue';
+import manageUser from '@/components/content/contain/manageUser.vue'
 export default {
-    
+  props: {keyNum:''}, 
   data() {
     return {
-      navList: [{ name: "首页", value: 1 }],
+      navList: [],
       visible: false,
-      active:null,
+      key:1,
+      val:' ',
+      active:1,
+      keyList:[],
+      navMenu:[{key:1,name:'首页'}],
+      navKey:[],
     };
   },
+  watch:{
+    keyNum(val){
+      this.val=this.$props    
+      this.navKey.push(this.val.keyNum.key)
+      this.keyList=[...new Set(this.navKey)]
+
+    for(var i in this.keyList){
+      if(this.val.keyNum.key == this.keyList[i]){
+        this.key=this.val.keyNum.key
+      }
+    }
+      this.navMenu.push(this.val.keyNum)
+      this.navList=[...new Set(this.navMenu)]
+        
+    }
+  },
   components:{
-       mainIndex
+       mainIndex,
+       manageUser,
     },
   methods: {
-    goForward() {},
-    goBack() {},
+    //前
+    goForward() {
+      if(this.key == '1') return;
+      if(this.key == this.navList[0].key) this.key = '1';
+      for(var i =0;i<this.navList.length;i++){
+        var _num=i-1
+        if(this.key==this.navList[i].key){
+             this.key=this.navList[_num].key
+        } 
+      }
+    },
+    //后
+    goBack() {
+      if(this.key=='1'){ this.key=this.navList[0].key;}else{
+         for(var i=0;i<this.navList.length;i++){
+          if(this.key==this.navList[i].key){
+          var _num=i+1;
+          this.key=this.navList[_num].key
+        }
+      }
+      }
+    },
     operatePage(e) {
       if (e.key) {
         this.visible = false;
       }
     },
+    //刷新
     reload() {
         location.reload() 
-    }
+    },
+    //關閉其它
+    keepCurPage(){
+       for(var i =0;i<this.navMenu.length;i++){
+        this.navList=this.navList.filter(item=>item.key == this.key)
+         this.navMenu=this.navMenu.filter(item=>item.key == this.key)
+       }
+    },
+    // 关闭当前页面
+    closePage(index){  
+      if(this.navList.length == 0) return;
+       for(var i in this.navList){
+         if(index == this.navList[i].key){
+           this.closeFuc(i)
+         }
+       }
+      
+    },
+    closeThisPage(index){
+      if(this.navList.length !=0){
+           for(var i in this.navList){
+         if(index == i){
+            this.closeFuc(i)
+         }
+       }
+      } 
+    },
+    closeFuc(val){
+            this.navList.splice(val,1)
+            this.navMenu.splice(val,1)
+            if(val-1>=0){
+             this.key=this.navList[val-1].key
+           }else{
+              this.key=1
+              this.navMenu=[]
+           } 
+    },
+    // 显示内容
+    showContain(key){
+      this.key=key
+    },
+    //关闭全部
+    closeAll(){
+     
+         this.navMenu=[]
+      this.keyList=[]
+      this.navList=[],
+      this.key='1'
+    },
+     
+  },
+  mounted(){
+     
   }
 };
 </script>

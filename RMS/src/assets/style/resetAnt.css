@@ -10,3 +10,4 @@
     background-color:#fff !important;
     border-top:1px solid #ddd !important;
 }
+.modal-qrcode .ant-modal-footer{display:none;}
