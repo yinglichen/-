@@ -1,0 +1,44 @@
+[{"index":"2","title":"主页","i":"el-icon-menu",
+    "menu":[{"index":"2-1","name":"控制台"},
+        {"index":"2-2","name":"主页一"},{"index":"2-3","name":"主页二"}]},
+
+{"index":"3","title":"个人中心","i":"el-icon-document",
+    "menu":[{"index":"3-1","name":"客户列表"},{
+             "index":"3-2","name":"通讯录"
+     },{
+            "index":"3-3","name":"商品列表"
+     },{
+            "index":"3-4","name":"商品详情"
+     },{
+            "index":"3-5","name":"商品分类"
+     },{
+            "index":"3-6","name":"评论管理"
+     },{
+           "index":"3-7","name":"我的消息"
+     },{
+           "index":"3-8","name":"工单系统"
+     }
+]},{
+    "index":"4","title":"角色管理","i":"el-icon-time",
+    "menu":[{"index":"4-1","name":"网站用户"},
+        {"index":"4-2","name":"后台管理员"},{
+        "index":"4-3","name":"管理角色"
+  }]
+},{
+    "index":"5","title":"高级","i":"el-icon-phone",
+    "menu":[{"index":"5-1","name":"通讯系统"},{
+        "index":"5-2","name":"Echarts集成"}]
+},{
+    "index":"6","title":"设置","i":"el-icon-setting",
+        "menu":[{
+        "index":"6-1","name":"网站设置"},{
+        "index":"6-2","name":"邮件服务"
+        },{
+            "index":"6-3","name":"基本资料"
+        },{
+            "index":"6-4","name":"修改密码"
+        }
+    ]
+},{
+    "index":"7","title":"版本","i":"el-icon-success"
+}]

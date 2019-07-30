@@ -1,0 +1,15 @@
+.vesion{
+    background:#fff;}
+    .table{ padding:1.4rem;}
+    .version-table{
+            width: 100%;
+    line-height: 30px;
+   
+    text-align: center;
+    }
+    .addressBtn{
+            margin: 1.8rem 0;
+            padding:0.6rem;
+            background:seagreen;
+            color:#fff;
+    }

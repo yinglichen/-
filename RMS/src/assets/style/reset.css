@@ -1,5 +1,6 @@
 *,ul,ol,dl,p{margin:0;padding:0}
-body{min-width: 1200px;overflow-x:hidden;height:100%;}
+.homePage,.contain,.control{width:100%;height:100%;}
+body{min-width: 1200px;overflow-x:hidden;height:100%;background: #eee;}
 html,#app,.index{width:100%;height:100%;}
 p{margin:0 !important;}
 
@@ -74,4 +75,11 @@ a{cursor: pointer;text-decoration: none; color:black;}
 .index .el-submenu__title i,.index .el-submenu__title,.index .el-menu-item{color:#ffffff;}
 .index .el-submenu__title:hover,.index .el-menu-item:hover{background:rgb(38, 57, 73)}
 
+/* index-header-serch-box */
+.index .search-box{border:none;  cursor: pointer;margin:0 1.54rem;}
+
+/* 内容 */
+.content-index .content-header{
+    border-top: 1px solid #f6f6f6;
+}
  

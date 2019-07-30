@@ -11,7 +11,7 @@
       maxWidth = maxWidth || 540
       width > maxWidth && (width = maxWidth)
       // var rem = width * 100 / designWidth
-      var rem = width * 13 / designWidth
+      var rem = width * 14 / designWidth
       remStyle.innerHTML = 'html{font-size:' + rem + 'px;}'
     }
     if (docEl.firstElementChild) {
@@ -34,10 +34,10 @@
       }
     }, false)
     if (doc.readyState === 'complete') {
-      doc.body.style.fontSize = '13px'
+      doc.body.style.fontSize = '14px'
     } else {
       doc.addEventListener('DOMContentLoaded', function (e) {
-        doc.body.style.fontSize = '13px'
+        doc.body.style.fontSize = '14px'
       }, false)
     }
   })(window.screen.width, window.screen.width)

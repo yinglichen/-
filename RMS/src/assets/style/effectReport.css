@@ -1,0 +1,17 @@
+.effectReport{
+    margin:1.43rem 0;
+    background: #ffffff;
+    width:100%;
+}
+.progress-1,.progress-2{
+    padding:1.4rem;
+    overflow: hidden;
+}
+h3{float: left; line-height: 26px;
+    font-size: 26px;}
+    .effectReport   span{float: right;}
+    .el-progress{margin:2rem 0;}
+    .el-progress-bar__inner{background-color:#5FB878 !important;}
+    .el-button{border:none !important;padding:0 !important;}
+    .el-button:hover{background: #ffffff !important;color:#666 !important;}
+    

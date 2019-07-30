@@ -1,0 +1,13 @@
+[
+    {"index":"1","name":"主页一","path":"/home/homePage1","iconfont":"./../../../static/images/iconfont/zhuye_2.png"},{
+     "index":"2","name":"主页二","path":"/home/homePage2","iconfont":"./../../../static/images/iconfont/zhuye_1.png"  
+    },{
+        "index":"3","name":"客户列表","path":"/personInform/customerList","iconfont":"./../../../static/images/iconfont/icon_group.png"   
+    },{
+        "index":"4","name":"聊天","path":"/personInform/contactList","iconfont":"./../../../static/images/iconfont/ziyuan.png"
+    },{
+        "index":"5","name":"用户","path":"/roleManagement/users","iconfont":"./../../../static/images/iconfont/gerenzhongxin.png"
+    },{
+        "index":"6","name":"设置","path":"/sets/networkSet","iconfont":"./../../../static/images/iconfont/icon-test-copy.png"
+    }
+]

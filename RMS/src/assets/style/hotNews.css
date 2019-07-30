@@ -1,0 +1,11 @@
+.el-menu-demo{width:100%;}
+.el-menu-item,.el-menu--horizontal>.el-menu-item{height:auto !important;line-height:3rem !important;}
+.dataForm{padding: 0 1.14rem;}
+.has-gutter tr th{background-color: #cccccc !important;color:#666 !important;}
+.index{text-align: center !important;}
+.hotNews{background:#fff;margin:0 1.4rem;}
+.dataForm{padding:1rem;}
+.el-table .sort-caret.ascending{border-bottom-color:#b2b2b2 !important;}
+.el-table .sort-caret.descending{border-top-color:#b2b2b2 !important;}
+.el-table .ascending .sort-caret.ascending{border-bottom-color:#000 !important;}
+.el-table .descending .sort-caret.descending{border-top-color:#000 !important;}
